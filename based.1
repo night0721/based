@@ -1,0 +1,48 @@
+.TH based 1 based\-VERSION
+.SH NAME
+based \- base conversion command line tool
+.SH SYNOPSIS
+.B based
+.RB [ \-f ]
+.RB [ \-t ]
+.RB [ \-n ]
+.RB [ \-h ]
+
+.SH DESCRIPTION
+based is a command line tool to help A level students to revise base conversion.
+
+.SH OPTIONS
+
+.TP
+.B \-f [bin|oct|dec|hex]
+Set the base of the number you want to convert from.
+
+.TP
+.B \-t [bin|oct|dec|hex]
+Set the base of the number you want to convert to.
+
+.TP
+.B \-n
+Set the number you want to convert.
+
+.TP
+.B \-h
+Show help message.
+
+.SH EXAMPLES
+To convert the number 00001010 from binary to decimal, you can use the following command:
+.PP
+.B based \-f bin \-t dec \-n 00001010
+.PP
+To convert the number 12 from decimal to binary, you can use the following command:
+.PP
+.B based \-f dec \-t bin \-n 12
+.PP
+To convert the number 12 from decimal to octal, you can use the following command:
+.PP
+.B based \-f dec \-t oct \-n 12
+.PP
+
+.SH AUTHOR
+Made by Night Kaly
+.B <night@night0721.xyz>

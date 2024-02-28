@@ -21,7 +21,7 @@ clean:
 
 dist: based
 	mkdir -p based-${VERSION}
-	cp -R LICENSE Makefile README.md based.1 based based-${VERSION}
+	cp -R LICENSE README.md based.1 based based-${VERSION}
 	tar -cf based-${VERSION}.tar based-${VERSION}
 	gzip based-${VERSION}.tar
 	rm -rf based-${VERSION}

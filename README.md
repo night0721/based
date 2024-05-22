@@ -1,15 +1,14 @@
 # based
-
 based is a command line tool to help A level students to revise base conversion.
 
 # Preview
 ![](https://r2.e-z.host/3c62bb3a-a8a9-43f6-afd6-553646f51dc4/8px2rilw.png)
 
 # Dependencies
-
 None
 
 # Building
+You will need to run these with elevated privilages.
 
 ```
 $ make

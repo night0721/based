@@ -4,17 +4,6 @@ based is a command line tool to help A level students to revise base conversion.
 # Preview
 ![](https://r2.e-z.host/3c62bb3a-a8a9-43f6-afd6-553646f51dc4/8px2rilw.png)
 
-# Dependencies
-None
-
-# Building
-You will need to run these with elevated privilages.
-
-```
-$ make
-# make install
-```
-
 # Usage
 ```
 Usage: ./based -f [from] -t [to] -n [number]
@@ -27,6 +16,16 @@ Options:
                             When from base is octal, the number must have at most 3 characters
                             When from base is hexadecimal, the number must have 2 characters
                             When from base is decimal, the number must be a bigger than 0 and smaller than 256
+```
+
+# Dependencies
+None
+
+# Building
+You will need to run these with elevated privilages.
+```
+$ make
+# make install
 ```
 
 # Contributions

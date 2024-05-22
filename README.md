@@ -2,19 +2,21 @@
 
 based is a command line tool to help A level students to revise base conversion.
 
-## Preview
+# Preview
 ![](https://r2.e-z.host/3c62bb3a-a8a9-43f6-afd6-553646f51dc4/8px2rilw.png)
 
-## Dependencies
-- gcc
+# Dependencies
 
-## Building
-```sh
+None
+
+# Building
+
+```
 $ make
-$ sudo make install
+# make install
 ```
 
-## Usage
+# Usage
 ```
 Usage: ./based -f [from] -t [to] -n [number]
 based is a command line tool to help A level students to revise base conversion.

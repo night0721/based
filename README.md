@@ -6,7 +6,7 @@ based is a command line tool to help A level students to revise base conversion.
 
 # Usage
 ```
-Usage: ./based -f [from] -t [to] -n [number]
+Usage: based -f [from] -t [to] -n [number]
 based is a command line tool to help A level students to revise base conversion.
 Options:
     -f [bin|oct|dec|hex]    The base to convert from

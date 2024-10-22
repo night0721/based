@@ -1,42 +1,42 @@
-CC=gcc
+.POSIX:
+.SUFFIXES:
 
 VERSION = 1.0
-PREFIX = /usr/local
-MANPREFIX = ${PREFIX}/share/man
+TARGET = based
+MANPAGE = $(TARGET).1
+PREFIX ?= /usr/local
+BINDIR = $(PREFIX)/bin
+MANDIR = $(PREFIX)/share/man/man1
 
-CFLAGS = -std=gnu11 -O0 -Wall
+CFLAGS = -O3 -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall
 
 SRC = based.c
-OBJ = ${SRC:.c=.o}
 
-.c.o:
-	${CC} -c ${CFLAGS} $<
+$(TARGET): $(SRC)
+	$(CC) $(SRC) -o $@ $(CFLAGS)
 
-based: ${OBJ}
-	${CC} -o $@ ${OBJ}
-	strip based
+dist:
+	mkdir -p $(TARGET)-$(VERSION)
+	cp -R README.md $(MANPAGE) $(TARGET) $(TARGET)-$(VERSION)
+	tar -cf $(TARGET)-$(VERSION).tar $(TARGET)-$(VERSION)
+	gzip $(TARGET)-$(VERSION).tar
+	rm -rf $(TARGET)-$(VERSION)
 
-clean:
-	rm -rf based
-
-dist: based
-	mkdir -p based-${VERSION}
-	cp -R LICENSE README.md based.1 based based-${VERSION}
-	tar -cf based-${VERSION}.tar based-${VERSION}
-	gzip based-${VERSION}.tar
-	rm -rf based-${VERSION}
-
-install: all
-	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f based ${DESTDIR}${PREFIX}/bin
-	chmod 755 ${DESTDIR}${PREFIX}/bin/based
-	mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	sed "s/VERSION/${VERSION}/g" < based.1 > ${DESTDIR}${MANPREFIX}/man1/based.1
-	chmod 644 ${DESTDIR}${MANPREFIX}/man1/based.1
+install: $(TARGET)
+	mkdir -p $(DESTDIR)$(BINDIR)
+	mkdir -p $(DESTDIR)$(MANDIR)
+	cp -p $(TARGET) $(DESTDIR)$(BINDIR)/$(TARGET)
+	chmod 755 $(DESTDIR)$(BINDIR)/$(TARGET)
+	cp -p $(MANPAGE) $(DESTDIR)$(MANDIR)/$(MANPAGE)
+	chmod 644 $(DESTDIR)$(MANDIR)/$(MANPAGE)
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/based\
-		${DESTDIR}${MANPREFIX}/man1/based.1
-all: based
+	rm $(DESTDIR)$(BINDIR)/$(TARGET)
+	rm $(DESTDIR)$(MANDIR)/$(MANPAGE)
 
-.PHONY: all clean dist install uninstall based
+clean:
+	rm $(TARGET)
+
+all: $(TARGET)
+
+.PHONY: all dist install uninstall clean

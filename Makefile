@@ -8,7 +8,7 @@ PREFIX ?= /usr/local
 BINDIR = $(PREFIX)/bin
 MANDIR = $(PREFIX)/share/man/man1
 
-CFLAGS = -O3 -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall
+CFLAGS = -Os -march=native -mtune=native -pipe -s -std=c99 -pedantic -Wall
 
 SRC = based.c
 
